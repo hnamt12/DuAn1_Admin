@@ -26,17 +26,19 @@
                     <th>Số điện thoại</th>
                     <th>Tổng tiền</th>
                     <th>Trạng thái đơn hàng</th>
-                    <th>Thao tác</th>
+                    <th class="text-center">Thao tác</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php foreach ($listDonhang as $donhang) : ?>
                     <tr>
-                      <td class="text-center"><?= $donhang["ma_donhang"] ?></td>
-                      <td><?= getOneTaikhoan($$donhang["id_taikhoan"])["ten_taikhoan"] ?></td>
+                      <td><?= $donhang["ma_donhang"] ?></td>
+                      <td><?= getOneTaikhoan($donhang["id_taikhoan"])["hoten"] ?></td>
+                      <td><?= $donhang["sdt"] ?></td>
+                      <td><?= $donhang["sdt"] ?></td>
+                      <td><?= $donhang["trangthai"] ?></td>
                       <td class="text-center">
-                        <a href="index.php?act=donhang_update&id=<?= $donhang["id_donhang"] ?>"><button type="button" class="btn btn-primary">Sửa</button></a>
-                        <a href="index.php?act=donhang_delete&id=<?= $donhang["id_donhang"] ?>"><button type="button" class="btn btn-primary">Xóa</button></a>
+                        <a href="index.php?act=donhang_detail&id=<?= $donhang["id_donhang"] ?>"><button type="button" class="btn btn-primary">Chi tiết</button></a>
                       </td>
                     </tr>
                   <?php endforeach; ?>

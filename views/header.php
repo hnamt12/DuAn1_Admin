@@ -98,7 +98,7 @@
             <li class="nav-header">QUẢN LÝ</li>
             <li class="nav-item">
               <a href="index.php?act=danhmuc" class="nav-link">
-                <i class="nav-icon fas fa-calendar-alt"></i>
+                <i class="nav-icon fas fa-columns"></i>
                 <p>
                   Danh mục
                 </p>
@@ -106,7 +106,7 @@
             </li>
             <li class="nav-item">
               <a href="index.php?act=sanpham" class="nav-link">
-                <i class="nav-icon far fa-image"></i>
+                <i class="nav-icon fas fa-columns"></i>
                 <p>
                   Sản phẩm
                 </p>

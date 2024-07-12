@@ -4,6 +4,13 @@ function sanphamList() {
     require_once PATH_VIEW . "sanpham/list.php";
 }
 
+function sanphamDetail() {
+    $id_sanpham = $_GET["id"];
+    $sanpham = getOneSanpham($id_sanpham);
+    $danhmuc = getOneDanhmuc($sanpham["id_danhmuc"]);
+    require_once PATH_VIEW . "sanpham/detail.php";
+}
+
 function sanphamAdd() {
     $listDanhmuc = getAllDanhmuc();
 

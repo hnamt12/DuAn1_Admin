@@ -21,6 +21,7 @@ $a = match ($act) {
     "danhmuc_delete" => danhmucDelete(),
 
     "sanpham" => sanphamList(),
+    "sanpham_detail" => sanphamDetail(),
     "sanpham_add" => sanphamAdd(),
     "sanpham_update" => sanphamUpdate(),
     "sanpham_delete" => sanphamDelete(),
