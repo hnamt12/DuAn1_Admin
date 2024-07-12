@@ -34,6 +34,7 @@ $a = match ($act) {
     "binhluan" => binhluanList(),
 
     "donhang" => donhangList(),
+    "donhang_detail" => donhangDetail(),
     
     "thanhtoan" => thanhtoanList(),
     "thanhtoan_add" => thanhtoanAdd(),
