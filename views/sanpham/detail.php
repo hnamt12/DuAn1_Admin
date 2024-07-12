@@ -25,7 +25,7 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-4">
-                  <img src="../../uploads/bcd.png" alt="img" width="100" height="100">
+                  <img src="<?= PATH_UPLOAD . $listAnhsanpham[0]["url"] ?>" alt="img" class="rounded float-left">
                 </div>
                 <div class="col-8">
                   <p><b>Tên sản phẩm: </b><?= $sanpham["ten_sanpham"] ?></p>
