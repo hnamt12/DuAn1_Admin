@@ -29,7 +29,7 @@
                   <p><b>Mã đơn hàng: </b><?= $donhang["ma_donhang"] ?></p>
                   <p><b>Thời gian đặt: </b><?= $donhang["created_at"] ?></p>
                   <p><b>Hình thức thanh toán: </b><?= $thanhtoan["ten_thanhtoan"] ?></p>
-                  <p><b>Trạng thái: </b><?= $donhang["trangthai"] ?></p>
+                  <p><b>Trạng thái: </b><?= $donhang["trangthai"] ?> <a href="index.php?act=">Thay đổi trạng thái</a></p>
                   <p><b>Ghi chú: </b><?= $donhang["ghichu"] ?></p>
                 </div>
                 <div class="col-6">
@@ -38,6 +38,9 @@
                   <p><b>Địa chỉ: </b><?= $donhang["diachi"] ?></p>
                   <p><b>Số điện thoại: </b><?= $donhang["sdt"] ?></p>
                 </div>
+              </div>
+              <div class="col-4 float-sm-right mb-2">
+                <a href="index.php?act="><button type="button" class="btn btn-block btn-dark">Xóa đơn hàng</button></a>
               </div>
               <div class="col-12">
                 <table id="example2" class="table table-bordered table-hover">
