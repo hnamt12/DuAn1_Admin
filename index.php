@@ -31,6 +31,8 @@
         "taikhoan_delete" => taikhoanDelete(),
 
         "binhluan" => binhluanList(),
+        
+        "donhang" => donhangList(),
     };
     
     include PATH_VIEW . "footer.php";
