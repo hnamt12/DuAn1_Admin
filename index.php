@@ -33,6 +33,11 @@ $a = match ($act) {
     "binhluan" => binhluanList(),
 
     "donhang" => donhangList(),
+    
+    "thanhtoan" => thanhtoanList(),
+    "thanhtoan_add" => thanhtoanAdd(),
+    "thanhtoan_update" => thanhtoanUpdate(),
+    "thanhtoan_delete" => thanhtoanDelete(),
 };
 
 include PATH_VIEW . "footer.php";

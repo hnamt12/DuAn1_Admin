@@ -136,6 +136,14 @@
                 </p>
               </a>
             </li>
+            <li class="nav-item">
+              <a href="index.php?act=thanhtoan" class="nav-link">
+                <i class="nav-icon fas fa-columns"></i>
+                <p>
+                  Hình thức thanh toán
+                </p>
+              </a>
+            </li>
           </ul>
         </nav>
         <!-- /.sidebar-menu -->

@@ -5,7 +5,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Đơn hàng</h1>
+          <h1>Hình thức thanh toán</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="index.php?act=thanhtoan_add"><button type="button" class="btn btn-block btn-dark float-sm-right">Thêm hình thức thanh toán</button></a></li>
+          </ol>
         </div>
       </div>
     </div><!-- /.container-fluid -->
@@ -18,25 +23,22 @@
         <div class="col-12">
           <div class="card">
             <div class="card-body">
-              <table id="example2" class="table table-bordered table-hover">
+              <table class="table table-bordered table-hover">
                 <thead>
                   <tr>
-                    <th>Mã đơn hàng</th>
-                    <th>Tên người đặt</th>
-                    <th>Số điện thoại</th>
-                    <th>Tổng tiền</th>
-                    <th>Trạng thái đơn hàng</th>
-                    <th>Thao tác</th>
+                    <th class="col-1 text-center">ID</th>
+                    <th>Tên hình thức</th>
+                    <th class="col-2 text-center">Thao tác</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php foreach ($listDonhang as $donhang) : ?>
+                  <?php foreach ($listThanhtoan as $thanhtoan) : ?>
                     <tr>
-                      <td class="text-center"><?= $donhang["ma_donhang"] ?></td>
-                      <td><?= getOneTaikhoan($$donhang["id_taikhoan"])["ten_taikhoan"] ?></td>
+                      <td class="text-center"><?= $thanhtoan["id_thanhtoan"] ?></td>
+                      <td><?= $thanhtoan["ten_thanhtoan"] ?></td>
                       <td class="text-center">
-                        <a href="index.php?act=donhang_update&id=<?= $donhang["id_donhang"] ?>"><button type="button" class="btn btn-primary">Sửa</button></a>
-                        <a href="index.php?act=donhang_delete&id=<?= $donhang["id_donhang"] ?>"><button type="button" class="btn btn-primary">Xóa</button></a>
+                        <a href="index.php?act=thanhtoan_update&id=<?= $thanhtoan["id_thanhtoan"] ?>"><button type="button" class="btn btn-primary">Sửa</button></a>
+                        <a href="index.php?act=thanhtoan_delete&id=<?= $thanhtoan["id_thanhtoan"] ?>"><button type="button" class="btn btn-primary">Xóa</button></a>
                       </td>
                     </tr>
                   <?php endforeach; ?>
