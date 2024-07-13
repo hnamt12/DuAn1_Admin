@@ -22,10 +22,6 @@
       <div class="row">
         <div class="col-12">
           <div class="card">
-            <!-- <div class="card-header">
-                  <h3 class="card-title">DataTable with minimal features & hover style</h3>
-                </div> -->
-            <!-- /.card-header -->
             <div class="card-body">
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
@@ -35,7 +31,7 @@
                     <th>Danh mục</th>
                     <th>Giá</th>
                     <th>Lượt xem</th>
-                    <th class="col-2 text-center">Thao tác</th>
+                    <th class="col-3 text-center">Thao tác</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -47,6 +43,7 @@
                       <td><?= $sanpham["gia"] ?></td>
                       <td><?= $sanpham["luotxem"] ?></td>
                       <td class="text-center">
+                        <a href="index.php?act=sanpham_detail&id=<?= $sanpham["id_sanpham"] ?>"><button type="button" class="btn btn-primary">Chi tiết</button></a>
                         <a href="index.php?act=sanpham_update&id=<?= $sanpham["id_sanpham"] ?>"><button type="button" class="btn btn-primary">Sửa</button></a>
                         <a href="index.php?act=sanpham_delete&id=<?= $sanpham["id_sanpham"] ?>"><button type="button" class="btn btn-primary">Xóa</button></a>
                       </td>
