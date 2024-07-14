@@ -18,7 +18,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-body">
-              <form action="index.php?act=sanpham_update&id=<?= $sanpham["id_sanpham"] ?>" method="post">
+              <form action="index.php?act=sanpham_update&id=<?= $sanpham["id_sanpham"] ?>" method="post" enctype="multipart/form-data">
                 <div class="card-body">
                   <div class="form-group">
                     <label for="ten_sanpham">Tên sản phẩm</label>
@@ -39,6 +39,15 @@
                   <div class="form-group">
                     <label for="mota">Mô tả</label>
                     <input type="text" class="form-control" name="mota" id="mota" value="<?= $sanpham["mota"] ?>" placeholder="Mô tả" autocomplete="off">
+                  </div>
+                  <div class="form-group">
+                    <label for="hinhanh">Hình ảnh</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="hinhanh" id="hinhanh">
+                        <label class="custom-file-label" for="hinhanh">Chọn ảnh</label>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <!-- /.card-body -->

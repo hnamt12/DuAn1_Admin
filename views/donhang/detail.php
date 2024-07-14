@@ -39,7 +39,7 @@
                   <p><b>Số điện thoại: </b><?= $donhang["sdt"] ?></p>
                 </div>
               </div>
-              <div class="col-4 float-sm-right mb-2">
+              <div class="col-2 mb-2">
                 <a href="index.php?act="><button type="button" class="btn btn-block btn-dark">Xóa đơn hàng</button></a>
               </div>
               <div class="col-12">

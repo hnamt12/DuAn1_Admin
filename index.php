@@ -32,6 +32,9 @@ $a = match ($act) {
     "taikhoan_delete" => taikhoanDelete(),
 
     "binhluan" => binhluanList(),
+    "binhluanDelete" => binhluanDelete(),
+    "binhluan_hide" => binhluanHide(),
+    "binhluan_unhide" => binhluanUnhide(),
 
     "donhang" => donhangList(),
     "donhang_detail" => donhangDetail(),

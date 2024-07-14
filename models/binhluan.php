@@ -1,7 +1,7 @@
 <?php
-function getAllSanpham() {
+function getAllBinhluan() {
     try {
-        $sql = "SELECT * FROM sanpham";
+        $sql = "SELECT * FROM binhluan";
         $stmt = $GLOBALS["conn"]->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll();
@@ -10,9 +10,20 @@ function getAllSanpham() {
     }
 }
 
-function getOneSanpham($id_sanpham) {
+function getAllBinhluan_Sanpham($id_sanpham) {
     try {
-        $sql = "SELECT * FROM sanpham WHERE id_sanpham='$id_sanpham'";
+        $sql = "SELECT * FROM binhluan WHERE id_sanpham='$id_sanpham'";
+        $stmt = $GLOBALS["conn"]->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    } catch (\Exception $e) {
+        debug($e);
+    }
+}
+
+function getOneBinhluan($id_binhluan) {
+    try {
+        $sql = "SELECT * FROM binhluan WHERE id_binhluan='$id_binhluan'";
         $stmt = $GLOBALS["conn"]->prepare($sql);
         $stmt->execute();
         return $stmt->fetch();
@@ -21,20 +32,9 @@ function getOneSanpham($id_sanpham) {
     }
 }
 
-function getSanphamLast() {
+function deleteBinhluan($id_binhluan) {
     try {
-        $sql = "SELECT * FROM sanpham ORDER BY id_sanpham DESC LIMIT 1";
-        $stmt = $GLOBALS["conn"]->prepare($sql);
-        $stmt->execute();
-        return $stmt->fetch();
-    } catch (\Exception $e) {
-        debug($e);
-    }
-}
-
-function addSanpham($ten_sanpham, $id_danhmuc, $gia, $mota) {
-    try {
-        $sql = "INSERT INTO sanpham(ten_sanpham, id_danhmuc, gia, mota) VALUES ('$ten_sanpham', '$id_danhmuc', '$gia', '$mota')";
+        $sql = "DELETE FROM binhluan WHERE id_binhluan='$id_binhluan'";
         $stmt = $GLOBALS["conn"]->prepare($sql);
         $stmt->execute();
     } catch (\Exception $e) {
@@ -42,9 +42,9 @@ function addSanpham($ten_sanpham, $id_danhmuc, $gia, $mota) {
     }
 }
 
-function updateSanpham($id_sanpham, $ten_sanpham, $id_danhmuc, $gia, $mota) {
+function hideBinhluan($id_binhluan) {
     try {
-        $sql = "UPDATE sanpham SET ten_sanpham='$ten_sanpham', id_danhmuc='$id_danhmuc', gia='$gia', mota='$mota' WHERE id_sanpham='$id_sanpham'";
+        $sql = "UPDATE binhluan SET trangthai=0 WHERE id_binhluan='$id_binhluan'";
         $stmt = $GLOBALS["conn"]->prepare($sql);
         $stmt->execute();
     } catch (\Exception $e) {
@@ -52,9 +52,9 @@ function updateSanpham($id_sanpham, $ten_sanpham, $id_danhmuc, $gia, $mota) {
     }
 }
 
-function deleteSanpham($id_sanpham) {
+function unhideBinhluan($id_binhluan) {
     try {
-        $sql = "DELETE FROM sanpham WHERE id_sanpham='$id_sanpham'";
+        $sql = "UPDATE binhluan SET trangthai=1 WHERE id_binhluan='$id_binhluan'";
         $stmt = $GLOBALS["conn"]->prepare($sql);
         $stmt->execute();
     } catch (\Exception $e) {

@@ -23,9 +23,9 @@
         <div class="col-12">
           <div class="card">
             <div class="card-body">
-              <div class="row">
+              <div class="row mb-2">
                 <div class="col-4">
-                  <img src="<?= PATH_UPLOAD . $listAnhsanpham[0]["url"] ?>" alt="img" class="rounded float-left">
+                  <img src="<?= BASE_URL . "/uploads/" . $listAnhsanpham[0]["url"] ?>" alt="img" class="rounded float-left img-fluid">
                 </div>
                 <div class="col-8">
                   <p><b>Tên sản phẩm: </b><?= $sanpham["ten_sanpham"] ?></p>
@@ -36,7 +36,22 @@
                 </div>
               </div>
               <div class="col-12">
-                <!-- Bình luận ở đây -->
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                    <tr>
+                      <th class="col-4">Người bình luận</th>
+                      <th>Nội dung</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php foreach ($listBinhluan as $binhluan) : ?>
+                      <tr>
+                        <td><?= getOneTaikhoan($binhluan["id_taikhoan"])["hoten"] ?></td>
+                        <td><?= $binhluan["noidung"] ?></td>
+                      </tr>
+                    <?php endforeach; ?>
+                  </tbody>
+                </table>
               </div>
             </div>
             <!-- /.card-body -->
