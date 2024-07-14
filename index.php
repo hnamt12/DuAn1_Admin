@@ -9,6 +9,7 @@ require_file(PATH_CONTROLLER);
 require_file(PATH_MODEL);
 
 include PATH_VIEW . "header.php";
+//$a=1;
 
 // Điều hướng
 $act = $_GET["act"] ?? "/";
