@@ -50,3 +50,14 @@ function deleteTaikhoan($id_taikhoan) {
         debug($e);
     }
 }
+
+function checkTaikhoan($ten_taikhoan, $matkhau) {
+    try {
+        $sql = "SELECT * FROM taikhoan WHERE ten_taikhoan='" . $ten_taikhoan . "' AND matkhau='" . $matkhau . "'";
+        $stmt = $GLOBALS["conn"]->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetch();
+    } catch (\Exception $e) {
+        debug($e);
+    }
+}

@@ -1,8 +1,12 @@
 <?php
+// Khởi tạo session
+session_start();
+
 // Require files trong commons
 require_once "./commons/env.php";
 require_once "./commons/helper.php";
 require_once "./commons/connect-db.php";
+require_once "./commons/check-login.php";
 
 // Require files trong controllers và models
 require_file(PATH_CONTROLLER);
