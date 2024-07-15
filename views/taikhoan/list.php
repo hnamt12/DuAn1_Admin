@@ -43,6 +43,7 @@
                       </td>
                       <td class="text-center">
                         <?php if ($taikhoan["quyen"] == 0) { ?>
+                          <a href="index.php?act=taikhoan_detail&id=<?= $taikhoan["id_taikhoan"] ?>"><button type="button" class="btn btn-primary">Chi tiết</button></a>
                           <a href="index.php?act=taikhoan_delete&id=<?= $taikhoan["id_taikhoan"] ?>"><button type="button" class="btn btn-primary">Xóa</button></a>
                         <?php } ?>
                       </td>

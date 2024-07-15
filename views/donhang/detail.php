@@ -9,7 +9,7 @@
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="index.php?act=donhang"><button type="button" class="btn btn-block btn-dark float-sm-right">Quay lại</button></a></li>
+            <li class="breadcrumb-item"><button class="btn btn-block btn-dark float-sm-right" onclick="history.go(-1);">Quay lại</button></li>
           </ol>
         </div>
       </div>

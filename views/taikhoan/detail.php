@@ -5,7 +5,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Chi tiết sản phẩm</h1>
+          <h1>Chi tiết tài khoản</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -23,31 +23,41 @@
         <div class="col-12">
           <div class="card">
             <div class="card-body">
-              <div class="row mb-2">
+              <div class="row mb-5">
                 <div class="col-4">
-                  <img src="<?= BASE_URL . "/uploads/" . $listAnhsanpham[0]["url"] ?>" alt="img" class="rounded float-left img-fluid">
+                  <img src="<?= BASE_URL . "/uploads/" . $taikhoan["hinhanh"] ?>" alt="img" class="rounded float-left img-fluid">
                 </div>
                 <div class="col-8">
-                  <p><b>Tên sản phẩm: </b><?= $sanpham["ten_sanpham"] ?></p>
-                  <p><b>Danh mục: </b><?= $danhmuc["ten_danhmuc"] ?></p>
-                  <p><b>Giá: </b><?= $sanpham["gia"] ?></p>
-                  <p><b>Lượt xem: </b><?= $sanpham["luotxem"] ?></p>
-                  <p><b>Mô tả: </b><?= $sanpham["mota"] ?></p>
+                  <p><b>Tên tài khoản: </b><?= $taikhoan["ten_taikhoan"] ?></p>
+                  <p><b>Họ tên: </b><?= $taikhoan["hoten"] ?></p>
+                  <p><b>Email: </b><?= $taikhoan["email"] ?></p>
+                  <p><b>Số điện thoại: </b><?= $taikhoan["sdt"] ?></p>
+                  <p><b>Ngày sinh: </b><?= $taikhoan["ngaysinh"] ?></p>
+                  <p><b>Địa chỉ: </b><?= $taikhoan["diachi"] ?></p>
                 </div>
               </div>
               <div class="col-12">
+                <h4>Lịch sử đặt hàng</h4>
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                     <tr>
-                      <th class="col-4">Người bình luận</th>
-                      <th>Nội dung</th>
+                      <th class="col-1 text-center">ID</th>
+                      <th>Mã đơn hàng</th>
+                      <th>Ngày đặt hàng</th>
+                      <th>Trạng thái</th>
+                      <th class="col-2 text-center">Hành động</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <?php foreach ($listBinhluan as $binhluan) : ?>
+                    <?php foreach ($listDonhang as $donhang) : ?>
                       <tr>
-                        <td><?= getOneTaikhoan($binhluan["id_taikhoan"])["hoten"] ?></td>
-                        <td><?= $binhluan["noidung"] ?></td>
+                        <td class="text-center"><?= $donhang["id_donhang"] ?></td>
+                        <td><?= $donhang["ma_donhang"] ?></td>
+                        <td><?= $donhang["created_at"] ?></td>
+                        <td><?= $donhang["trangthai"] ?></td>
+                        <td class="text-center">
+                          <a href="index.php?act=donhang_detail&id=<?= $donhang["id_donhang"] ?>"><button type="button" class="btn btn-primary">Chi tiết</button></a>
+                        </td>
                       </tr>
                     <?php endforeach; ?>
                   </tbody>

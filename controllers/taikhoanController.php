@@ -4,6 +4,13 @@ function taikhoanList() {
     require_once PATH_VIEW . "taikhoan/list.php";
 }
 
+function taikhoanDetail() {
+    $id_taikhoan = $_GET["id"];
+    $taikhoan = getOneTaikhoan($id_taikhoan);
+    $listDonhang = getAllDonhang_Taikhoan($id_taikhoan);
+    require_once PATH_VIEW . "taikhoan/detail.php";
+}
+
 function taikhoanAdd() {
     if (isset($_POST["themmoi"])) {
         $ten_taikhoan = $_POST["ten_taikhoan"];
