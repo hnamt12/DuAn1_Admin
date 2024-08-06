@@ -29,7 +29,11 @@
                   <p><b>Mã đơn hàng: </b><?= $donhang["ma_donhang"] ?></p>
                   <p><b>Thời gian đặt: </b><?= $donhang["created_at"] ?></p>
                   <p><b>Hình thức thanh toán: </b><?= $thanhtoan["ten_thanhtoan"] ?></p>
-                  <p><b>Trạng thái: </b><?= $donhang["trangthai"] ?> <a href="index.php?act=">Thay đổi trạng thái</a></p>
+                  <form action="index.php?act=donhang_detail&id=<?= $donhang["id_donhang"] ?>" method="post">
+                    <p><b>Xác nhận: </b><?= showStatus("xacnhan", $donhang["trangthai_xacnhan"], true) ?> <input class="btn btn-dark" type="submit" name="" value="Thay đổi trạng thái"></p>
+                    <p><b>Thanh toán: </b><?= showStatus("thanhtoan", $donhang["trangthai_thanhtoan"], true) ?> <input class="btn btn-dark" type="submit" name="" value="Thay đổi trạng thái"></p>
+                    <p><b>Giao hàng: </b><?= showStatus("giaohang", $donhang["trangthai_giaohang"], true) ?> <input class="btn btn-dark" type="submit" name="" value="Thay đổi trạng thái"></p>
+                  </form>
                   <p><b>Ghi chú: </b><?= $donhang["ghichu"] ?></p>
                 </div>
                 <div class="col-6">

@@ -35,8 +35,10 @@
                       <td><?= $donhang["ma_donhang"] ?></td>
                       <td><?= getOneTaikhoan($donhang["id_taikhoan"])["hoten"] ?></td>
                       <td><?= $donhang["sdt"] ?></td>
-                      <td><?= $donhang["sdt"] ?></td>
-                      <td><?= $donhang["trangthai"] ?></td>
+                      <td><?= getTongtien_Dơnhang($donhang["id_donhang"]) ?></td>
+                      <td><?php showStatus("xacnhan", $donhang["trangthai_xacnhan"], false);
+                                showStatus("thanhtoan", $donhang["trangthai_thanhtoan"], false);
+                                showStatus("giaohang", $donhang["trangthai_giaohang"], false); ?></td>
                       <td class="text-center">
                         <a href="index.php?act=donhang_detail&id=<?= $donhang["id_donhang"] ?>"><button type="button" class="btn btn-primary">Chi tiết</button></a>
                       </td>

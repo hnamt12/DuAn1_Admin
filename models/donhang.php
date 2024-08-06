@@ -42,3 +42,38 @@ function getAllChiTietDonHang($id_donhang) {
         debug($e);
     }
 }
+
+function getTongtien_Dơnhang($id_donhang) {
+    $listCTDH = getAllChiTietDonHang($id_donhang);
+    $total = 0;
+
+    foreach ($listCTDH as $ctdh)
+        $total += getOneSanpham($ctdh["id_sanpham"])["gia"] * $ctdh["soluong"];
+
+    return $total;
+}
+
+function showStatus($type, $input, $span) {
+    if ($type == "xacnhan") {
+        $status = ($input == 0) ? "Chưa xác nhận" : "Đã xác nhận";
+        $color  = ($input == 0) ? "text-danger" : "text-success";
+    }
+
+    if ($type == "thanhtoan") {
+        $status = ($input == 0) ? "Chưa thanh toán" : "Đã thanh toán";
+        $color  = ($input == 0) ? "text-danger" : "text-success";
+    }
+
+    if ($type == "giaohang") {
+        $status = ($input == 0) ? "Chưa giao hàng" : "Đã giao hàng";
+        $color  = ($input == 0) ? "text-danger" : "text-success";
+    }
+    
+    if ($span == true)
+        echo '<span class="' . $color . '">' . $status . '</span>';
+    else echo '<p class="' . $color . '">' . $status . '</p>';
+}
+
+function changeStatus($type) {
+
+}

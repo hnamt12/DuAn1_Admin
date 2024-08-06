@@ -22,9 +22,15 @@ function sanphamAdd() {
         $gia = $_POST["gia"];
         $mota = $_POST["mota"];
 
-        $hinhanh = $_FILES["hinhanh"]["name"];
+        // $hinhanh = $_FILES["hinhanh"]["name"];
+        // $target_dir = PATH_UPLOAD;
+        // $target_file = $target_dir . basename($_FILES["hinhanh"]["name"]);
+
+        $fileExtension = pathinfo($_FILES["hinhanh"]["name"], PATHINFO_EXTENSION);
+        $hinhanh = date("YmdhisB") . "." . $fileExtension;
         $target_dir = PATH_UPLOAD;
-        $target_file = $target_dir . basename($_FILES["hinhanh"]["name"]);
+        $target_file = $target_dir . $hinhanh;
+
         if (move_uploaded_file($_FILES["hinhanh"]["tmp_name"], $target_file)) {
             // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
         } else {
@@ -51,9 +57,10 @@ function sanphamUpdate() {
         $gia = $_POST["gia"];
         $mota = $_POST["mota"];
 
-        $hinhanh = $_FILES["hinhanh"]["name"];
+        $fileExtension = pathinfo($_FILES["hinhanh"]["name"], PATHINFO_EXTENSION);
+        $hinhanh = date("YmdhisB") . "." . $fileExtension;
         $target_dir = PATH_UPLOAD;
-        $target_file = $target_dir . basename($_FILES["hinhanh"]["name"]);
+        $target_file = $target_dir . $hinhanh;
         if (move_uploaded_file($_FILES["hinhanh"]["tmp_name"], $target_file)) {
             // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
         } else {
