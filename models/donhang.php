@@ -87,9 +87,6 @@ function showStatus($type, $input, $span) {
     }
 
     if ($type == "giaohang") {
-        $status = ($input == 0) ? "Chưa giao hàng" : "Đã giao hàng";
-        $color  = ($input == 0) ? "text-danger" : "text-success";
-
         if ($input == 0) {
             $status = "Chưa giao hàng";
             $color = "text-danger";
@@ -110,7 +107,8 @@ function showStatus($type, $input, $span) {
 }
 
 function showChangeStatusButton($name, $donhang) {
-    if ($name == "trangthai_xacnhan" && $donhang["trangthai_thanhtoan"] == 0 && ($donhang["trangthai_giaohang"] == 0))
+    if (($name == "trangthai_xacnhan" && $donhang["trangthai_xacnhan"] == 0 && $donhang["trangthai_giaohang"] == 0)
+        || (($name == "trangthai_xacnhan" && $donhang["trangthai_thanhtoan"] == 0 && $donhang["trangthai_giaohang"] == 0)))
         echo '<input class="btn btn-dark" type="submit" name="'.$name.'" value="Thay đổi trạng thái">';
 
     if ($name == "trangthai_giaohang" && $donhang["trangthai_xacnhan"] == 1 && ($donhang["trangthai_giaohang"] == 0))
