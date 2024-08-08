@@ -12,7 +12,7 @@ function login() {
 
         if (is_array($taikhoan)) {
             if ($taikhoan["quyen"] == 1) {
-                $_SESSION["user"] = $taikhoan;
+                $_SESSION["user_admin"] = $taikhoan;
                 header("Location: index.php");
             } else echo '<script>alert("Bạn không có quyền đăng nhập vào trang này");</script>';
         } else echo '<script>alert("Tên tài khoản hoặc mật khẩu không đúng");</script>';
