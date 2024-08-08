@@ -1,7 +1,7 @@
 <?php
 function getAllDonhang() {
     try {
-        $sql = "SELECT * FROM donhang";
+        $sql = "SELECT * FROM donhang ORDER BY id_donhang DESC";
         $stmt = $GLOBALS["conn"]->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll();
@@ -32,12 +32,34 @@ function getOneDonhang($id_donhang) {
     }
 }
 
+function deleteDonhang($id_donhang) {
+    try {
+        $sql = "DELETE FROM donhang WHERE id_donhang='$id_donhang'";
+        $stmt = $GLOBALS["conn"]->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetch();
+    } catch (\Exception $e) {
+        debug($e);
+    }
+}
+
 function getAllChiTietDonHang($id_donhang) {
     try {
         $sql = "SELECT * FROM chitietdonhang WHERE id_donhang='$id_donhang'";
         $stmt = $GLOBALS["conn"]->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll();
+    } catch (\Exception $e) {
+        debug($e);
+    }
+}
+
+function deleteChiTietDonhang($id_donhang) {
+    try {
+        $sql = "DELETE FROM chitietdonhang WHERE id_donhang='$id_donhang'";
+        $stmt = $GLOBALS["conn"]->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetch();
     } catch (\Exception $e) {
         debug($e);
     }
@@ -67,6 +89,19 @@ function showStatus($type, $input, $span) {
     if ($type == "giaohang") {
         $status = ($input == 0) ? "Chưa giao hàng" : "Đã giao hàng";
         $color  = ($input == 0) ? "text-danger" : "text-success";
+
+        if ($input == 0) {
+            $status = "Chưa giao hàng";
+            $color = "text-danger";
+        }
+        else if ($input == 1) {
+            $status = "Đã giao hàng";
+            $color = "text-success";
+        }
+        else {
+            $status = "Đang giao hàng";
+            $color = "text-warning";
+        }
     }
     
     if ($span == true)
@@ -74,6 +109,36 @@ function showStatus($type, $input, $span) {
     else echo '<p class="' . $color . '">' . $status . '</p>';
 }
 
-function changeStatus($type) {
+function showChangeStatusButton($name, $donhang) {
+    if ($name == "trangthai_xacnhan" && $donhang["trangthai_thanhtoan"] == 0 && ($donhang["trangthai_giaohang"] == 0))
+        echo '<input class="btn btn-dark" type="submit" name="'.$name.'" value="Thay đổi trạng thái">';
 
+    if ($name == "trangthai_giaohang" && $donhang["trangthai_xacnhan"] == 1 && ($donhang["trangthai_giaohang"] == 0))
+        echo '<input class="btn btn-dark" type="submit" name="'.$name.'" value="Thay đổi trạng thái">';
+}
+
+function changeStatus($type, $id_donhang) {
+    $donhang = getOneDonhang($id_donhang);
+
+    if ($type == "xacnhan") {
+        if ($donhang["trangthai_xacnhan"] == 0) {
+            $sql = "UPDATE donhang SET trangthai_xacnhan=1 WHERE id_donhang='$id_donhang'";
+            $stmt = $GLOBALS["conn"]->prepare($sql);
+            $stmt->execute();
+        } else {
+            if ($donhang["trangthai_thanhtoan"] == 0 && ($donhang["trangthai_giaohang"] == 0)) {
+                $sql = "UPDATE donhang SET trangthai_xacnhan=0 WHERE id_donhang='$id_donhang'";
+                $stmt = $GLOBALS["conn"]->prepare($sql);
+                $stmt->execute();
+            }
+        }
+    }
+
+    if ($type == "giaohang") {
+        if ($donhang["trangthai_giaohang"] == 0 && $donhang["trangthai_xacnhan"] == 1) {
+            $sql = "UPDATE donhang SET trangthai_giaohang=2 WHERE id_donhang='$id_donhang'";
+            $stmt = $GLOBALS["conn"]->prepare($sql);
+            $stmt->execute();
+        }
+    }
 }
