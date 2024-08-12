@@ -21,6 +21,34 @@ function getAllDonhang_Taikhoan($id_taikhoan) {
     }
 }
 
+function getAllDonhang_DaThanhToan() {
+    try {
+        $sql = "SELECT * FROM donhang WHERE trangthai_thanhtoan = 1";
+        $stmt = $GLOBALS["conn"]->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    } catch (\Exception $e) {
+        debug($e);
+    }
+}
+
+function getTongDoanhThu($from, $to) {
+    try {
+        $listDonhang = getAllDonhang_DaThanhToan();
+
+        $total = 0;
+        foreach ($listDonhang as $donhang)
+            $total += getTongtien_Dơnhang($donhang["id_donhang"]);
+
+        // if ($from == 0 && $to == 0)
+        //     return $listDonhang;
+
+        return $total;
+    } catch (\Exception $e) {
+        debug($e);
+    }
+}
+
 function getOneDonhang($id_donhang) {
     try {
         $sql = "SELECT * FROM donhang WHERE id_donhang='$id_donhang'";

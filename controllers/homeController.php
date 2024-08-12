@@ -1,5 +1,10 @@
 <?php
 function homeIndex() {
+    $tong_donhang = sizeof(getAllDonhang());
+    $tong_donhang_dathanhtoan = sizeof(getAllDonhang_DaThanhToan());
+    $tong_doanhthu = getTongDoanhThu(0, 0);
+    $soluong_thanhvien = sizeof(getAllTaikhoan()) - 1;
+
     require_once PATH_VIEW . "home.php";
 }
 
