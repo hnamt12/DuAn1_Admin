@@ -18,7 +18,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-body">
-              <form action="index.php?act=danhmuc_update&id=<?= $danhmuc["id_danhmuc"] ?>" method="post">
+              <form action="index.php?act=danhmuc_update&id=<?= $danhmuc["id_danhmuc"] ?>" method="post" enctype="multipart/form-data">
                 <div class="card-body">
                   <!-- <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
@@ -27,6 +27,16 @@
                   <div class="form-group">
                     <label for="ten_danhmuc">Tên danh mục</label>
                     <input type="text" class="form-control" name="ten_danhmuc" id="ten_danhmuc" value="<?= $danhmuc["ten_danhmuc"] ?>" placeholder="Tên danh mục" autocomplete="off">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="anh_danhmuc">Ảnh danh mục</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="anh_danhmuc" id="anh_danhmuc">
+                        <label class="custom-file-label" for="anh_danhmuc">Chọn ảnh</label>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <!-- /.card-body -->

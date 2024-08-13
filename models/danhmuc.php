@@ -21,9 +21,9 @@ function getOneDanhmuc($id_danhmuc) {
     }
 }
 
-function addDanhmuc($ten_danhmuc) {
+function addDanhmuc($ten_danhmuc, $anh_danhmuc) {
     try {
-        $sql = "INSERT INTO danhmuc(ten_danhmuc) VALUES ('$ten_danhmuc')";
+        $sql = "INSERT INTO danhmuc(ten_danhmuc, anh_danhmuc) VALUES ('$ten_danhmuc', '$anh_danhmuc')";
         $stmt = $GLOBALS["conn"]->prepare($sql);
         $stmt->execute();
     } catch (\Exception $e) {
@@ -31,9 +31,9 @@ function addDanhmuc($ten_danhmuc) {
     }
 }
 
-function updateDanhmuc($id_danhmuc, $ten_danhmuc) {
+function updateDanhmuc($id_danhmuc, $ten_danhmuc, $anh_danhmuc) {
     try {
-        $sql = "UPDATE danhmuc SET ten_danhmuc='$ten_danhmuc' WHERE id_danhmuc='$id_danhmuc'";
+        $sql = "UPDATE danhmuc SET ten_danhmuc='$ten_danhmuc', anh_danhmuc='$anh_danhmuc' WHERE id_danhmuc='$id_danhmuc'";
         $stmt = $GLOBALS["conn"]->prepare($sql);
         $stmt->execute();
     } catch (\Exception $e) {

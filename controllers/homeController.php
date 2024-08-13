@@ -4,6 +4,7 @@ function homeIndex() {
     $tong_donhang_dathanhtoan = sizeof(getAllDonhang_DaThanhToan());
     $tong_doanhthu = getTongDoanhThu(0, 0);
     $soluong_thanhvien = sizeof(getAllTaikhoan()) - 1;
+    $listTop5LuotXem = getTop5LuotXem();
 
     require_once PATH_VIEW . "home.php";
 }

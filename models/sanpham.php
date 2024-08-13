@@ -32,6 +32,17 @@ function getSanphamLast() {
     }
 }
 
+function getTop5LuotXem() {
+    try {
+        $sql = "SELECT * FROM sanpham ORDER BY luotxem DESC LIMIT 5";
+        $stmt = $GLOBALS["conn"]->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    } catch (\Exception $e) {
+        debug($e);
+    }
+}
+
 function addSanpham($ten_sanpham, $id_danhmuc, $gia, $mota) {
     try {
         $sql = "INSERT INTO sanpham(ten_sanpham, id_danhmuc, gia, mota) VALUES ('$ten_sanpham', '$id_danhmuc', '$gia', '$mota')";
